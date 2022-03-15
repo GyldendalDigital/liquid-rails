@@ -2,7 +2,7 @@ module Liquid
   module Rails
     class TemplateHandler
 
-      def self.call(template)
+      def self.call(template, source)
         "Liquid::Rails::TemplateHandler.new(self).render(#{template.source.inspect}, local_assigns)"
       end
 

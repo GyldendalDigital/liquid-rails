@@ -3,6 +3,7 @@ module Liquid
     class TemplateHandler
 
       def self.call(template, source)
+        puts "call called"
         "Liquid::Rails::TemplateHandler.new(self).render(#{template.source.inspect}, local_assigns)"
       end
 
@@ -13,6 +14,7 @@ module Liquid
       end
 
       def render(template, local_assigns={})
+        puts "Liquid gem render"
         assigns = if @controller.respond_to?(:liquid_assigns, true)
           @controller.send(:liquid_assigns)
         else

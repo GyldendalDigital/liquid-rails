@@ -3,8 +3,11 @@ module Liquid
     class Railtie < ::Rails::Railtie
       config.app_generators.template_engine :liquid
 
+      puts "liquid-rails: Railtie"
       initializer 'liquid-rails.register_template_handler' do |app|
+        puts "initializer"
         ActiveSupport.on_load(:action_view) do
+          puts "on_load"
           ActionView::Template.register_template_handler(:liquid, Liquid::Rails::TemplateHandler)
         end
       end
